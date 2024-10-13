@@ -1,6 +1,4 @@
 import unittest
-import tempfile
-from pathlib import Path
 from unittest.mock import Mock
 
 from todo.app import TODOApp

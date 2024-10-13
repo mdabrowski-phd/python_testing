@@ -2,8 +2,10 @@ import unittest
 import threading
 import queue
 import tempfile
+from pathlib import Path
 
 from todo.app import TODOApp
+from todo.db import BasicDB
 
 
 class TestTODOAcceptance(unittest.TestCase):
@@ -67,7 +69,7 @@ class TestTODOAcceptance(unittest.TestCase):
         return threading.Thread(
             target=TODOApp(
                 io=(self.fake_input, self.fake_output),
-                dbpath=dirname
+                dbmanager=BasicDB(Path(dirname, "db"))
                 ).run,
                 daemon=True)
 
