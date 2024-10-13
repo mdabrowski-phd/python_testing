@@ -1,8 +1,22 @@
 import unittest
 import threading
+import queue
+
+from src.todo.app import TODOApp
 
 
 class TestTODOAcceptance(unittest.TestCase):
+    def setUp(self):
+        self.outputs = queue.Queue()
+        self.inputs = queue.Queue()
+        
+        self.fake_output = lambda txt: self.outputs.put(txt)
+        self.fake_input = lambda: self.inputs.get()
+
+        self.get_output = lambda: self.outputs.get(timeout=1)
+        self.send_input = lambda cmd: self.inputs.put(cmd)
+
+
     def test_main(self):
         app = TODOApp(io=(self.fake_input, self.fake_output))
 
@@ -47,4 +61,4 @@ class TestTODOAcceptance(unittest.TestCase):
 
         self.send_input("quit")
         app_thread.join(timeout=1)
-        self.assertEqual(self.get_output(), "Bye\n")
+        self.assertEqual(self.get_output(), "Bye!\n")
