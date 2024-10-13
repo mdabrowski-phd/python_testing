@@ -2,10 +2,11 @@ import functools
 
 
 class TODOApp:
-    def __init__(self, io=(input, functools.partial(print, end=""))):
+    def __init__(self, io=(input, functools.partial(print, end="")), dbpath=None):
         self._in, self._out = io
         self._quit = False
         self._entries = []
+        self._dbpath = dbpath or '.'
 
     def run(self):
         self._quit = False

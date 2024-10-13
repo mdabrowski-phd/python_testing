@@ -2,7 +2,7 @@ import unittest
 import threading
 import queue
 
-from src.todo.app import TODOApp
+from todo.app import TODOApp
 
 
 class TestTODOAcceptance(unittest.TestCase):
