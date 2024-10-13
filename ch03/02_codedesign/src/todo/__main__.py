@@ -1,4 +1,5 @@
 from .app import TODOApp
+from .db import BasicDB
 
 
-TODOApp().run()
+TODOApp(dbmanager=BasicDB("todo.data")).run()

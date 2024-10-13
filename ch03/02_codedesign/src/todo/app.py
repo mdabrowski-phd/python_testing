@@ -19,6 +19,9 @@ class TODOApp:
             self._out(self.prompt(self.items_list()))
             command = self._in()
             self._dispatch(command)
+
+        if self._dbmanager is not None:
+            self._dbmanager.save(self._entries)
         self._out("Bye!\n")
 
     def items_list(self):
