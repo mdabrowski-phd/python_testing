@@ -12,3 +12,8 @@ class TestChatAcceptance(unittest.TestCase):
             user1.send_message("Hello World!")
             messages = user2.fetch_messages()
             assert messages == ["John Doe: Hello World!"]
+
+    def test_smoke_sending_message(self):
+        with new_chat_server():
+            user1 = ChatClient("User 1")
+            user1.send_message("Hello World!")
