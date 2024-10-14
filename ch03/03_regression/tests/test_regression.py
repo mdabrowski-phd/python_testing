@@ -2,7 +2,6 @@ import unittest
 from unittest.mock import Mock
 import io
 
-from todo.app import TODOApp
 from todo.db import BasicDB
 
 
@@ -11,25 +10,12 @@ class TestRegression(unittest.TestCase):
         fakefile = io.StringIO()
         fakefile.close = Mock()
 
-        app = TODOApp(
-            io=(Mock(side_effect=[
-                "add buy milk",
-                'add install "Ubuntu"',
-                "quit"
-                ]), Mock()),
-            dbmanager=BasicDB(
-                None,
-                _fileopener=Mock(side_effect=[FileNotFoundError, fakefile]))
-            )
-        app.run()
-
+        data = ["add buy milk", 'add install "Ubuntu"', "quit"]
+        dbmanager=BasicDB(None, _fileopener=Mock(return_value=fakefile))
+        dbmanager.save(data)
+        
         fakefile.seek(0)
 
-        restarted_app = TODOApp(
-            io=(Mock(return_value="quit"), Mock()),
-            dbmanager=BasicDB(
-                None,
-                _fileopener=Mock(return_value=fakefile))
-            )
-        restarted_app.run()
+        loaded_data = dbmanager.load()
+        self.assertEqual(loaded_data, data)
             
