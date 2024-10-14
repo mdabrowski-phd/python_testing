@@ -31,8 +31,3 @@ class TestChatClient(unittest.TestCase):
 
         assert starting_messages == ["message1", "message2"]
         assert new_messages == ["message3"]
-
-
-if __name__ == '__main__':
-    unittest.main()
-    

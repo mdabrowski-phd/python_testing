@@ -24,7 +24,3 @@ class TestConnection(unittest.TestCase):
 
                 c1.broadcast("connected message")
                 assert c2.get_messages()[-1] == "connected message"
-
-
-if __name__ == '__main__':
-    unittest.main()
