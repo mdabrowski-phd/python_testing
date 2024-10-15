@@ -13,4 +13,11 @@ def enterexit():
     print("ENTER")
     yield
     print("EXIT")
+
+
+def pytest_addoption(parser):
+    parser.addoption(
+        "--upper", action="store_true", 
+        help="test for uppercase behaviour"
+    )
     
