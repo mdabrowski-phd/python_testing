@@ -23,6 +23,8 @@ class Application:
             except ValueError as err:
                 print(err)
                 return
+        elif cmd == "del":
+            self.delete(args)
         else:
             raise ValueError(f"Invalid command: {cmd}")
 
@@ -44,6 +46,10 @@ class Application:
             raise ValueError(f"Invalid phone number: {phonenum}")
 
         self._contacts.append((name, phonenum))
+        self.save()
+
+    def delete(self, name):
+        self._contacts = [c for c in self._contacts if c[0] != name]
         self.save()
 
 
