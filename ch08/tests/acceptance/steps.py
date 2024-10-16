@@ -1,11 +1,11 @@
 from pytest_bdd import given, when, parsers
 
-import contacts
+from contacts import Application
 
 
 @given("I have a contact book", target_fixture="contactbook")
 def contactbook():
-    return contacts.Application()
+    return Application()
 
 
 @given(parsers.parse("I have a \"{contactname}\" contact"))

@@ -1,9 +1,9 @@
-import contacts
+from contacts import Application
 
 
 class TestBasicFeatures:    
     def test_international_numbers(self):
-        app = contacts.Application()
+        app = Application()
 
         app.run("contacts add NAME +393345554433")
 
@@ -12,7 +12,7 @@ class TestBasicFeatures:
         ]
 
     def test_invalid_strings(self):
-        app = contacts.Application()
+        app = Application()
 
         app.run("contacts add NAME InvalidString")
 
@@ -21,7 +21,7 @@ class TestBasicFeatures:
 
 class TestStorage:
     def test_reload(self):
-        app = contacts.Application()
+        app = Application()
 
         app.run("contacts add NAME 3345554433")
 
