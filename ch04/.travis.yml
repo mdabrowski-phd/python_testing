@@ -6,13 +6,17 @@ dist: xenial
 python:
   - 3.7
   - &mainstream_python 3.8
+  - 3.11
   - nightly
 
 install:
-  - "pip install -e src"
+  - "pip install tox-travis"
+  - "pip install coveralls"
 
 script:
-  - "python -m unittest discover tests -v"
+  - "tox"
 
 after_success:
-  - "python -m unittest discover benchmarks -v"
+  - coveralls
+  - "tox -e benchmarks"
+  
