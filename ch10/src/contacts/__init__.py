@@ -47,7 +47,11 @@ class Application:
             args = None
 
         if cmd == "add":
-            name, num = args.rsplit(maxsplit=1)
+            try:
+                name, num = args.rsplit(maxsplit=1)
+            except ValueError:
+                print("A contact must provide a name and phone number")
+                return
             try:
                 self.add(name, num)
             except ValueError as err:
