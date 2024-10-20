@@ -1,74 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.11.9 on win32)" generated="2024-10-20T17:21:04.993079" rpa="false" schemaversion="5">
+<robot generator="Robot 7.1.1 (Python 3.11.9 on win32)" generated="2024-10-20T17:48:39.603392" rpa="false" schemaversion="5">
 <suite id="s1" name="Searchgoogle" source="E:\python_testing\ch12\searchgoogle.robot">
-<test id="s1-t1" name="Search On Google" line="10">
+<test id="s1-t1" name="Search On Google" line="14">
 <kw name="Start Video Recording" owner="ScreenCapLibrary" type="SETUP">
-<msg time="2024-10-20T17:21:07.642329" level="INFO">Automatically setting a fps of 10.5</msg>
+<msg time="2024-10-20T17:48:42.270151" level="INFO">Automatically setting a fps of 9.0</msg>
 <doc>Starts the recording of a video in the background with the specified ``name``.
 The recording can be stopped by calling the `Stop Video Recording` keyword.</doc>
-<status status="PASS" start="2024-10-20T17:21:05.477588" elapsed="2.164741"/>
+<status status="PASS" start="2024-10-20T17:48:40.092179" elapsed="2.177972"/>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-10-20T17:21:07.642329" level="INFO">Opening browser 'Chrome' to base url 'http://www.google.com'.</msg>
+<msg time="2024-10-20T17:48:42.270151" level="INFO">Opening browser 'chrome' to base url 'http://www.google.com'.</msg>
 <arg>http://www.google.com</arg>
-<arg>Chrome</arg>
+<arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-10-20T17:21:07.642329" elapsed="2.526216"/>
+<status status="PASS" start="2024-10-20T17:48:42.270151" elapsed="2.629742"/>
 </kw>
+<kw name="Run Keyword If" owner="BuiltIn">
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
 <arg>L2AGLb</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2024-10-20T17:21:10.168545" elapsed="0.020442"/>
+<status status="PASS" start="2024-10-20T17:48:44.900628" elapsed="0.024365"/>
 </kw>
+<arg>${NOTHEADLESS}</arg>
+<arg>Wait Until Page Contains Element</arg>
+<arg>L2AGLb</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-10-20T17:48:44.900521" elapsed="0.024472"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-10-20T17:21:10.189989" level="INFO">Clicking element 'css=button[id="L2AGLb"]'.</msg>
+<msg time="2024-10-20T17:48:44.924993" level="INFO">Clicking element 'css=button[id="L2AGLb"]'.</msg>
 <arg>css=button[id="L2AGLb"]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-20T17:21:10.188987" elapsed="0.091390"/>
+<status status="PASS" start="2024-10-20T17:48:44.924993" elapsed="0.093075"/>
+</kw>
+<arg>${NOTHEADLESS}</arg>
+<arg>Click Element</arg>
+<arg>css=button[id="L2AGLb"]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-10-20T17:48:44.924993" elapsed="0.093075"/>
+</kw>
+<kw name="Unselect Frame" owner="SeleniumLibrary">
+<doc>Sets the main frame as the current frame.</doc>
+<status status="PASS" start="2024-10-20T17:48:45.019075" elapsed="0.003995"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-10-20T17:21:10.281378" level="INFO">Typing text 'Stephen Hawking' into text field 'name=q'.</msg>
+<msg time="2024-10-20T17:48:45.024079" level="INFO">Typing text 'Stephen Hawking' into text field 'name=q'.</msg>
 <arg>name=q</arg>
 <arg>Stephen\ Hawking</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-20T17:21:10.281378" elapsed="0.239136"/>
+<status status="PASS" start="2024-10-20T17:48:45.023070" elapsed="0.190894"/>
 </kw>
 <kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2024-10-20T17:21:10.520514" level="INFO">Sending key(s) ('ENTER',) to name=q element.</msg>
-<msg time="2024-10-20T17:21:10.817606" level="INFO">Pressing special key ENTER to element.</msg>
-<msg time="2024-10-20T17:21:10.817606" level="INFO">Releasing special key ENTER.</msg>
+<msg time="2024-10-20T17:48:45.216867" level="INFO">Sending key(s) ('SPACE',) to name=q element.</msg>
+<msg time="2024-10-20T17:48:45.515861" level="INFO">Pressing special key SPACE to element.</msg>
+<msg time="2024-10-20T17:48:45.515897" level="INFO">Releasing special key SPACE.</msg>
+<arg>name=q</arg>
+<arg>SPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2024-10-20T17:48:45.213964" elapsed="0.319176"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2024-10-20T17:48:45.534285" level="INFO">Sending key(s) ('ENTER',) to name=q element.</msg>
+<msg time="2024-10-20T17:48:45.845061" level="INFO">Pressing special key ENTER to element.</msg>
+<msg time="2024-10-20T17:48:45.845061" level="INFO">Releasing special key ENTER.</msg>
 <arg>name=q</arg>
 <arg>ENTER</arg>
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2024-10-20T17:21:10.520514" elapsed="1.490269"/>
+<status status="PASS" start="2024-10-20T17:48:45.533688" elapsed="2.647772"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>id=res</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-10-20T17:48:48.181460" elapsed="0.023299"/>
 </kw>
 <kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2024-10-20T17:21:12.121473" level="INFO">Current page contains text 'Wikipedia'.</msg>
+<msg time="2024-10-20T17:48:48.261229" level="INFO">Current page contains text 'Wikipedia'.</msg>
 <arg>Wikipedia</arg>
 <doc>Verifies that current page contains ``text``.</doc>
-<status status="PASS" start="2024-10-20T17:21:12.011766" elapsed="0.109707"/>
+<status status="PASS" start="2024-10-20T17:48:48.205757" elapsed="0.055472"/>
 </kw>
 <kw name="Close Window" owner="SeleniumLibrary">
 <doc>Closes currently opened and selected browser window/tab.</doc>
-<status status="PASS" start="2024-10-20T17:21:12.121473" elapsed="0.182530"/>
+<status status="PASS" start="2024-10-20T17:48:48.261229" elapsed="0.153524"/>
 </kw>
 <kw name="Stop Video Recording" owner="ScreenCapLibrary" type="TEARDOWN">
-<msg time="2024-10-20T17:21:12.563799" level="INFO" html="true">&lt;a href="recording_2.webm"&gt;&lt;video width="800px" autoplay&gt;&lt;source src="recording_2.webm" type="video/webm"&gt;&lt;/video&gt;&lt;/a&gt;</msg>
+<msg time="2024-10-20T17:48:48.438109" level="INFO" html="true">&lt;a href="recording_1.webm"&gt;&lt;video width="800px" autoplay&gt;&lt;source src="recording_1.webm" type="video/webm"&gt;&lt;/video&gt;&lt;/a&gt;</msg>
 <doc>Stops the video recording corresponding to the given ``alias`` and generates the file in WebM format. If no
 ``alias`` is specified, the last opened recording will be closed. If there are more recordings with the same
 alias all of them will be closed. If ``embed`` argument was set to
 ``True`` the video will be displayed in the log file.
 Furthermore, if the ``save_to_disk`` parameter is set to ``False``, the video will be embedded and available in
 the log file only.</doc>
-<status status="PASS" start="2024-10-20T17:21:12.304003" elapsed="0.259796"/>
+<status status="PASS" start="2024-10-20T17:48:48.414753" elapsed="0.023356"/>
 </kw>
-<status status="PASS" start="2024-10-20T17:21:05.477588" elapsed="7.086211"/>
+<status status="PASS" start="2024-10-20T17:48:40.092179" elapsed="8.345930"/>
 </test>
 <kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2024-10-20T17:21:12.563799" elapsed="6.110617"/>
+<status status="PASS" start="2024-10-20T17:48:48.438109" elapsed="6.192385"/>
 </kw>
-<status status="PASS" start="2024-10-20T17:21:04.993079" elapsed="13.681337"/>
+<status status="PASS" start="2024-10-20T17:48:39.603392" elapsed="15.027102"/>
 </suite>
 <statistics>
 <total>
