@@ -5,11 +5,10 @@ from django.http import HttpResponse
 def home(request):
     return HttpResponse('Hello World')
 
-
 def get(request):
     if request.META.get("SERVER_PORT") == "80":
-        host_no_default_port = request.META["HTTP_HOST"].replace(":80", "")
-        request.META["HTTP_HOST"] = host_no_default_port
+        http_host = request.META.get("HTTP_HOST", "httpbin.org").replace(":80", "")
+        request.META["HTTP_HOST"] = http_host
     host = request.META["HTTP_HOST"]
 
     response = HttpResponse(json.dumps({
