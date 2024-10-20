@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.11.9 on win32)" generated="2024-10-20T16:55:15.851227" rpa="false" schemaversion="5">
+<suite id="s1" name="Hellotest" source="E:\python_testing\ch12\hellotest.robot">
+<test id="s1-t1" name="Hello World" line="5">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-10-20T16:55:15.898079" level="INFO">Running command 'echo "Hello World" &gt; hello.txt'.</msg>
+<arg>echo "Hello World" &gt; hello.txt</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-10-20T16:55:15.882480" elapsed="0.044272"/>
+</kw>
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-10-20T16:55:15.926752" level="INFO" html="true">Getting file '&lt;a href="file://E:\python_testing\ch12\hello.txt"&gt;E:\python_testing\ch12\hello.txt&lt;/a&gt;'.</msg>
+<msg time="2024-10-20T16:55:15.927751" level="INFO">${filecontent} = "Hello World" 
+</msg>
+<var>${filecontent}</var>
+<arg>hello.txt</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-10-20T16:55:15.926752" elapsed="0.000999"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${filecontent}</arg>
+<arg>Hello</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2024-10-20T16:55:15.927751" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-10-20T16:55:15.882480" elapsed="0.046271"/>
+</test>
+<status status="PASS" start="2024-10-20T16:55:15.851227" elapsed="0.078524"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Hellotest">Hellotest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
